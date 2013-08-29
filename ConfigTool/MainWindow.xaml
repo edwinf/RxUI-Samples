@@ -1,0 +1,29 @@
+﻿<Window x:Class="ConfigTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="ConfigurationList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox x:Name="SearchFilter" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Height="30" />
+
+        <Button x:Name="Refresh" Grid.Column="0" Grid.Row="2" Margin="4,4,4,0" Content="Refresh" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="Auto" Height="25"/>
+        
+        <ProgressBar x:Name="IsBusy" Grid.Row="2" Grid.Column="1" Margin="4,4,4,0" HorizontalAlignment="Stretch" Height="24" IsIndeterminate="True"/>
+    </Grid>
+</Window>
